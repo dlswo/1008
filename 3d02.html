@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    .container {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        transform-style: preserve-3d;
+        perspective: 800px;
+        perspective-origin: 50% 50%;
+    }
+    .wrapper {
+        transform-style: preserve-3d;
+        box-sizing: border-box;;
+        width: 300px;
+        height: 300px;
+        border: 1px solid blue;
+        transition-duration: 0.6s;
+    }
+    .panel {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        opacity: 1;       /*투명도*/
+        box-sizing: border-box;
+    }
+    .p1 {
+        background-color: red;
+        transform: translateZ(150px);
+    }
+    .p2 {
+        background-color: orange;
+        transform: translateZ(-150px);
+    }
+    .p3 {
+        background-color: yellow;
+        transform:  rotateY(90deg) translateZ(-150px);
+    }
+    .p4 {
+        background-color: green;
+        transform:  rotateY(90deg) translateZ(150px);
+    }
+    .p5 {
+        background-color: blue;
+        transform:  rotateX(90deg) translateZ(-150px);
+    }
+    .p6 {
+        background-color: purple;
+        transform:  rotateX(90deg) translateZ(150px);
+    }
+
+    .f1{
+
+    }
+    .f2{
+        transform: rotateY(180deg);
+    }
+    .f3{
+        transform: rotateY(90deg);
+    }
+    .f4{
+        transform: rotateY(-90deg);
+    }
+    .f5{
+        transform: rotateX(90deg);
+    }
+    .f6{
+        transform: rotateX(-90deg);
+    }
+    video{
+        width: 300px;
+        height: 300px;
+    }
+</style>
+
+<div class="container">
+
+    <div class="wrapper">
+        <div class="panel p1"><video src="mp3/copy.mp4" autoplay></video></div>
+        <div class="panel p2"><video src="mp3/copy.mp4" autoplay></video></div>
+        <div class="panel p3"><video src="mp3/copy.mp4" autoplay></video></div>
+        <div class="panel p4"><video src="mp3/copy.mp4" autoplay></video></div>
+        <div class="panel p5"><video src="mp3/copy.mp4" autoplay></video></div>
+        <div class="panel p6"><video src="mp3/copy.mp4" autoplay></video></div>
+    </div>
+
+</div>
+
+<script>
+
+    var wrapper = document.querySelector(".wrapper");
+
+    document.querySelector("body")
+        .addEventListener("click", () => {
+            console.log("clicked.....")
+
+            var num = parseInt(Math.random() * 6) + 1;
+
+            console.log(num);
+
+            var className = "f"+ num;
+
+            wrapper.setAttribute("class","wrapper " + className)
+
+        }, false);
+
+</script>
+
+</body>
+</html>
